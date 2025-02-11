@@ -1,4 +1,4 @@
-// services/apiService.js
+
 const BASE_URL = 'https://jsonplaceholder.typicode.com';
 
 export const fetchPhotos = async (start, limit) => {
@@ -13,11 +13,11 @@ export const fetchPhotos = async (start, limit) => {
 
     const data = await response.json();
     
-    // Transform data to ensure valid image URLs
+   
     return data.map(photo => ({
       id: photo.id,
       title: photo.title,
-      // Use a reliable placeholder service instead of the original URLs
+    
       thumbnailUrl: `https://picsum.photos/id/${photo.id}/300/200`,
       url: `https://picsum.photos/id/${photo.id}/600/400`
     }));

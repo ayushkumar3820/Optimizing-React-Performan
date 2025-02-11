@@ -3,7 +3,7 @@ import React, { memo, useState } from 'react';
 const PhotoCard = memo(({ photo }) => {
   const [imageError, setImageError] = useState(false);
   
-  // Fallback image using a number based on the photo ID to maintain consistency
+  
   const fallbackImage = `https://picsum.photos/seed/${photo.id}/300/200`;
 
   const handleImageError = () => {

@@ -14,7 +14,7 @@ const App = () => {
   const [hasMore, setHasMore] = useState(true);
   const itemsPerPage = 20;
 
-  // Initial load
+ 
   useEffect(() => {
     const loadInitialPhotos = async () => {
       setLoading(true);
@@ -32,7 +32,7 @@ const App = () => {
     loadInitialPhotos();
   }, []);
 
-  // Load more photos
+ 
   const loadMorePhotos = useCallback(async () => {
     if (!hasMore || loading) return;
 
@@ -57,7 +57,7 @@ const App = () => {
     }
   }, [page, hasMore, loading]);
 
-  // Debounced search
+ 
   const debouncedSearch = useMemo(
     () =>
       debounce(async (query) => {
@@ -79,20 +79,20 @@ const App = () => {
     []
   );
 
-  // Handle search
+
   const handleSearch = (query) => {
     setSearchQuery(query);
     if (query) {
       debouncedSearch(query);
     } else {
-      // Reset to initial state when search is cleared
+     
       setPage(1);
       setHasMore(true);
       loadInitialPhotos();
     }
   };
 
-  // Filtered photos
+  
   const filteredPhotos = useMemo(() => {
     return photos.filter(photo =>
       photo.title.toLowerCase().includes(searchQuery.toLowerCase())
